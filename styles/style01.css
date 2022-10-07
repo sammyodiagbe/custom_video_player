@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin:0;
+    border: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    
+}
+
+div.video-container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+div.video-container video#video {
+    height: 100%;
+    width: 100%;
+}
+
+div.video-container div.media-controllers-container {
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+button {
+    padding: 10px;
+    
+}
+
