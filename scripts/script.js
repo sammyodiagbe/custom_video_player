@@ -6,6 +6,7 @@ const seekForward = document.querySelector("#forward");
 const seekBackward = document.querySelector("#backward");
 const volumeUpButton = document.querySelector("#volume-up");
 const volumeDownButton = document.querySelector("#volume-down");
+const muteButton = document.querySelector("#mute-button");
 
 class Video {
   constructor(source, videoElement) {
@@ -42,6 +43,11 @@ class Video {
     this.videoElement.volume -= 0.1;
   }
 
+  mute() {
+    console.log(this.videoElement.muted);
+    this.videoElement.muted = !this.videoElement.muted;
+  }
+
   seekBackward(point) {
     if (this.videoElement.currentTime <= 0) {
       this.videoElement.currentTime = 0;
@@ -60,6 +66,10 @@ const video = new Video(path, videoElement);
 // window.addEventListener("click", (event) => {
 //   video.playAndPause();
 // });
+
+muteButton.addEventListener("click", (_) => {
+  video.mute();
+});
 
 volumeUpButton.addEventListener("click", (_) => {
   video.increaseVolume();
