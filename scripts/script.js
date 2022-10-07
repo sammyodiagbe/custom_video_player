@@ -22,16 +22,31 @@ seekForward.addEventListener("click", (_) => {
 });
 
 class Video {
-  constructor(source) {
+  constructor(source, videoElement) {
     this.source = source;
+    this.videoElement = videoElement;
   }
 
-  play() {}
+  play() {
+    this.videoElement.play();
+  }
 
   // pause
-  pause() {}
+  pause() {
+    this.videoElement.pause();
+  }
 
-  seek(point) {}
+  seekForward(point) {
+    this.videoElement.currentTime = this.videoElement.currentTime + 15;
+  }
+
+  seekBackward(point) {
+    if (this.videoElement.currentTime <= 0) {
+      this.videoElement.currentTime = 0;
+    } else {
+      this.videoElement.currentTime = this.videoElement.currentTime - 15;
+    }
+  }
 
   increaseVolume(increaseBy) {}
 
