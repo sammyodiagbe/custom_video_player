@@ -25,6 +25,7 @@ class Video {
   constructor(source, videoElement) {
     this.source = source;
     this.videoElement = videoElement;
+    this.videoElement.setAttribute("src", source);
   }
 
   play() {
