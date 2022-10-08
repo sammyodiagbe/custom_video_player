@@ -27,7 +27,7 @@ div.video-container div.media-controllers-container {
     width: 100%;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.3);
     display: flex;
     padding: 0 1rem;
     justify-content: space-evenly;
@@ -40,13 +40,24 @@ div.progress-container {
     padding: 0 2.5rem;
 }
 
-div.progress-container progress {
+div.progress-container div#progress-track {
     width: 100%;
+    height: 5px;
+    background: #333;
+    border-radius: 20px;
+}
+
+div.progress-container div#progress-track div#progress-bar {
+    height: inherit;
+    background: #eee;
+    border-radius: inherit;
+    
 }
 
 button {
     padding: 10px;
-
+    background: transparent;
+    color: #fff;
 }
 
 

@@ -6,24 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom video player</title>
     <link rel="stylesheet" href="./styles/style01.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="video-container">
         <video src="" autoplay="false" id="video"></video>
         <div class="media-controllers-container">
             <div class="left-control-container">
-                <button id="backward"> reverse </button>
-            <button id="play">play</button>
-            <button id="forward">forward</button>
+                <button id="backward"><i class="fa fa-backward"></i></button>
+            <button id="play"><i class="fa fa-play"></i></button>
+            <button id="forward"><i class="fa fa-forward"></i></button>
             </div>
             
             <div class="progress-container">
-                <progress max="" value="50"></progress>
+                <div id="progress-track">
+                    <div id="progress-bar"></div>
+                </div>
             </div>
             <div class="media-controller">
-                <button data-icon="P" class="volume-up" id="volume-up"></button>
-                <button class="volume-down" id="volume-down">Volume down</button>
-                <button class="mute" id="mute-button">mute</button>
+                <button data-icon="P" class="volume-up" id="volume-up"><i class="fa fa-volume-up"></i></button>
+                <button class="volume-down" id="volume-down"><i class="fa fa-volume-down"></i></button>
+                <button class="mute" id="mute-button">mute  <i class="fa fa-volume-off"></i></button>
             </div>
         </div>
     </div>

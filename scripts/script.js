@@ -25,7 +25,17 @@ class Video {
 
   listenForTimeChanges() {
     this.videoElement.addEventListener("timeupdate", (_) => {
-      console.log(this.videoElement.currentTime / 60);
+      let minutes = Math.floor(this.videoElement.currentTime / 60);
+      let seconds = Math.floor(this.videoElement.currentTime - minutes * 60);
+      const progressTrack = document.querySelector("#progress-track");
+      const progressBar = document.querySelector("#progress-bar");
+
+      console.log(progressTrack.clientWidth);
+
+      progressBar.style.width = `${
+        progressTrack.clientWidth *
+        (this.videoElement.currentTime / this.videoElement.duration)
+      }px`;
     });
   }
 
