@@ -13,12 +13,20 @@ class Video {
     this.source = source;
     this.videoElement = videoElement;
     this.videoElement.setAttribute("src", source);
+
+    this.listenForTimeChanges();
   }
 
   playAndPause() {
     console.log(this.videoElement.paused);
     if (this.videoElement.paused) this.videoElement.play();
     else this.videoElement.pause();
+  }
+
+  listenForTimeChanges() {
+    this.videoElement.addEventListener("timeupdate", (_) => {
+      console.log(this.videoElement.currentTime / 60);
+    });
   }
 
   // pause

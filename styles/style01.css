@@ -37,6 +37,11 @@ div.video-container div.media-controllers-container {
 
 div.progress-container {
     flex: 1;
+    padding: 0 2.5rem;
+}
+
+div.progress-container progress {
+    width: 100%;
 }
 
 button {
