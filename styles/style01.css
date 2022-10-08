@@ -27,7 +27,7 @@ div.video-container div.media-controllers-container {
     width: 100%;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4 );
     display: flex;
     padding: 0 1rem;
     justify-content: space-evenly;

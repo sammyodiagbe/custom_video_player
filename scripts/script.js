@@ -30,8 +30,6 @@ class Video {
       const progressTrack = document.querySelector("#progress-track");
       const progressBar = document.querySelector("#progress-bar");
 
-      console.log(progressTrack.clientWidth);
-
       progressBar.style.width = `${
         progressTrack.clientWidth *
         (this.videoElement.currentTime / this.videoElement.duration)
