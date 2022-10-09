@@ -8,6 +8,8 @@ const volumeUpButton = document.querySelector("#volume-up");
 const volumeDownButton = document.querySelector("#volume-down");
 const muteButton = document.querySelector("#mute-button");
 const btnElem = document.querySelector("#btn-elem");
+const currentTime = document.querySelector("#current-time");
+const durationTime = document.querySelector("#duration");
 
 class Video {
   constructor(source, videoElement) {
@@ -44,8 +46,15 @@ class Video {
       let minutes = Math.floor(this.videoElement.currentTime / 60);
       let seconds = Math.floor(this.videoElement.currentTime - minutes * 60);
       const duration = this.videoElement.duration;
+      const durationMinute = Math.floor(duration / 60);
+      const durationseconds = Math.floor(duration - durationMinute * 60);
       const progressTrack = document.querySelector("#progress-track");
       const progressBar = document.querySelector("#progress-bar");
+
+      currentTime.innerHTML = `${minutes}:${seconds}`;
+      durationTime.innerHTML = duration
+        ? `${durationMinute}:${durationseconds}`
+        : "00:00";
 
       progressBar.style.width = `${
         progressTrack.clientWidth * (this.videoElement.currentTime / duration)
