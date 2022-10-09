@@ -66,6 +66,7 @@ button {
     padding: 10px;
     background: transparent;
     color: #fff;
+    font-size: 1rem;
 }
 
 div.media-controller {
@@ -73,7 +74,7 @@ div.media-controller {
     align-items: center;
 }
 
-div.media-controller span.volume-pipe {
+div.media-controller div.volume-pipe {
     flex: 1;
     height: 5px;
     display: inline-block;
@@ -82,8 +83,10 @@ div.media-controller span.volume-pipe {
     border-radius: 3px;
 }
 
-div.media-controller span.volume-pipe span.pipe {
-    display: inline-block;
+div.media-controller div.volume-pipe div.pipe {
+    background:#fff;
+    height:5px;;
+    border-radius: 5px;
 }
 
 

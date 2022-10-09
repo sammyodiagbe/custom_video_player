@@ -26,7 +26,7 @@ class Video {
 
   init() {
     console.log(volumePipe.clientWidth);
-    pipe.style.width = volumePipe.clientWidth * this.videoElement.volume;
+    pipe.style.width = `${volumePipe.clientWidth * this.videoElement.volume}px`;
   }
 
   updateUi() {
@@ -59,7 +59,9 @@ class Video {
       const durationseconds = Math.floor(duration - durationMinute * 60);
       const progressTrack = document.querySelector("#progress-track");
       const progressBar = document.querySelector("#progress-bar");
-
+      pipe.style.width = `${
+        volumePipe.clientWidth * this.videoElement.volume
+      }px`;
       currentTime.innerHTML = `${minutes}:${seconds}`;
       durationTime.innerHTML = duration
         ? `${durationMinute}:${durationseconds}`
@@ -81,7 +83,7 @@ class Video {
   increaseVolume() {
     if (this.videoElement.volume >= 1) return;
     this.videoElement.volume += 0.1;
-    pipe.style.width = volumePipe.clientWidth * this.videoElement.volume;
+    pipe.style.width = `${volumePipe.clientWidth * this.videoElement.volume}px`;
   }
 
   decreaseVolume() {
@@ -90,7 +92,7 @@ class Video {
       return;
     }
     this.videoElement.volume -= 0.1;
-    pipe.style.width = volumePipe.clientWidth * this.videoElement.volume;
+    pipe.style.width = `${volumePipe.clientWidth * this.videoElement.volume}px`;
   }
 
   mute() {
