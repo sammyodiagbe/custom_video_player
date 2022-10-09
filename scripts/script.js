@@ -7,20 +7,31 @@ const seekBackward = document.querySelector("#backward");
 const volumeUpButton = document.querySelector("#volume-up");
 const volumeDownButton = document.querySelector("#volume-down");
 const muteButton = document.querySelector("#mute-button");
+const btnElem = document.querySelector("#btn-elem");
 
 class Video {
   constructor(source, videoElement) {
     this.source = source;
     this.videoElement = videoElement;
     this.videoElement.setAttribute("src", source);
-
+    this.duration = this.videoElement.duration;
     this.listenForTimeChanges();
+  }
+
+  updateTiming() {
+    console.log(this.videoElement.duration);
   }
 
   playAndPause() {
     console.log(this.videoElement.paused);
-    if (this.videoElement.paused) this.videoElement.play();
-    else this.videoElement.pause();
+    if (this.videoElement.paused) {
+      this.videoElement.play();
+      this.updateTiming();
+      btnElem.setAttribute("class", "fa fa-pause");
+    } else {
+      this.videoElement.pause();
+      btnElem.setAttribute("class", "fa fa-play");
+    }
   }
 
   listenForTimeChanges() {
