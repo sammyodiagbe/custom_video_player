@@ -10,6 +10,8 @@ const muteButton = document.querySelector("#mute-button");
 const btnElem = document.querySelector("#btn-elem");
 const currentTime = document.querySelector("#current-time");
 const durationTime = document.querySelector("#duration");
+const volumePipe = document.querySelector("#volume-pipe");
+const pipe = document.querySelector("#pipe");
 
 class Video {
   constructor(source, videoElement) {
@@ -18,6 +20,13 @@ class Video {
     this.videoElement.setAttribute("src", source);
     this.duration = this.videoElement.duration;
     this.listenForTimeChanges();
+
+    this.init();
+  }
+
+  init() {
+    console.log(volumePipe.clientWidth);
+    pipe.style.width = volumePipe.clientWidth * this.videoElement.volume;
   }
 
   updateUi() {
@@ -72,6 +81,7 @@ class Video {
   increaseVolume() {
     if (this.videoElement.volume >= 1) return;
     this.videoElement.volume += 0.1;
+    pipe.style.width = volumePipe.clientWidth * this.videoElement.volume;
   }
 
   decreaseVolume() {
@@ -80,6 +90,7 @@ class Video {
       return;
     }
     this.videoElement.volume -= 0.1;
+    pipe.style.width = volumePipe.clientWidth * this.videoElement.volume;
   }
 
   mute() {

@@ -68,5 +68,23 @@ button {
     color: #fff;
 }
 
+div.media-controller {
+    display: flex;
+    align-items: center;
+}
+
+div.media-controller span.volume-pipe {
+    flex: 1;
+    height: 5px;
+    display: inline-block;
+    width: 150px;
+    background: #555;
+    border-radius: 3px;
+}
+
+div.media-controller span.volume-pipe span.pipe {
+    display: inline-block;
+}
+
 
 
