@@ -49,9 +49,6 @@ class Video {
   }
 
   // pause
-  pause() {
-    if (this.videoElement.paused == false) this.videoElement.pause();
-  }
 
   seekForward(point) {
     this.videoElement.currentTime = this.videoElement.currentTime + 15;
