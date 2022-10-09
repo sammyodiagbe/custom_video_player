@@ -18,19 +18,24 @@ class Video {
     this.listenForTimeChanges();
   }
 
-  updateTiming() {
-    console.log(this.videoElement.duration);
+  updateUi() {
+    // getting the duration
+
+    if (this.videoElement.paused) {
+      btnElem.setAttribute("class", "fa fa-play");
+    } else {
+      btnElem.setAttribute("class", "fa fa-pause");
+    }
   }
 
   playAndPause() {
     console.log(this.videoElement.paused);
     if (this.videoElement.paused) {
       this.videoElement.play();
-      this.updateTiming();
-      btnElem.setAttribute("class", "fa fa-pause");
+      this.updateUi();
     } else {
       this.videoElement.pause();
-      btnElem.setAttribute("class", "fa fa-play");
+      this.updateUi();
     }
   }
 
@@ -38,13 +43,14 @@ class Video {
     this.videoElement.addEventListener("timeupdate", (_) => {
       let minutes = Math.floor(this.videoElement.currentTime / 60);
       let seconds = Math.floor(this.videoElement.currentTime - minutes * 60);
+      const duration = this.videoElement.duration;
       const progressTrack = document.querySelector("#progress-track");
       const progressBar = document.querySelector("#progress-bar");
 
       progressBar.style.width = `${
-        progressTrack.clientWidth *
-        (this.videoElement.currentTime / this.videoElement.duration)
+        progressTrack.clientWidth * (this.videoElement.currentTime / duration)
       }px`;
+      this.updateUi();
     });
   }
 
